@@ -49,7 +49,7 @@ export default function ConnectTerminalModal({ onClose }: { onClose: () => void 
     window.location.reload();
 
   };
-  
+
   const handleDelete = (index: number) => {
     // Remove the session at the specified index
     const updatedSessions = [...sessions];
@@ -106,7 +106,7 @@ export default function ConnectTerminalModal({ onClose }: { onClose: () => void 
             </div>
           </div>
           <DialogFooter>
-            <Button onClick={handleConnect}>Connect</Button>
+            <Button onClick={handleConnect} className='mt-4'>Connect</Button>
           </DialogFooter>
         </div>
         <div style={{ flex: 3 }}>

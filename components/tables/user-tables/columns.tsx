@@ -29,12 +29,12 @@ export const columns: ColumnDef<User>[] = [
     header: "NAME",
   },
   {
-    accessorKey: "company",
-    header: "COMPANY",
+    accessorKey: "machine",
+    header: "MACHINE",
   },
   {
-    accessorKey: "role",
-    header: "ROLE",
+    accessorKey: "privileges",
+    header: "PRIVILEGES",
   },
   {
     accessorKey: "status",

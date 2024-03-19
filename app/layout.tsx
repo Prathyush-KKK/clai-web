@@ -9,7 +9,7 @@ import { getServerSession } from "next-auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "clai",
+  title: "clai-dashboard",
   description: "Dashboard for Clai",
 };
 

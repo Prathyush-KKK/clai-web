@@ -101,13 +101,18 @@ export default function App() {
         {sessions.map((session, index) => (
             <Card key={index} className="mb-4">
               <CardHeader>
-                <CardTitle>{session.alias}</CardTitle>
-                <CardDescription>Host: {session.hostname}</CardDescription>
+              <div className="flex items-center justify-between">
+    <div>
+      <CardTitle>{session.alias}</CardTitle>
+    </div>
+    <button className="ml-2 px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">Edit</button>
+  </div>                <CardDescription>Host: {session.hostname}</CardDescription>
               </CardHeader>
               <CardContent>
                 <p><strong>Port:</strong> {session.port}</p>
                 <p><strong>Username:</strong> {session.username}</p>
-                <p><strong>Password:</strong> {session.password}</p>
+                <p className="pb-2"><strong>Password:</strong>{" "}  <span dangerouslySetInnerHTML={{ __html: "&bull;".repeat(session.password.length) }} />
+</p>
               </CardContent>
               <CardFooter>
                 <Button

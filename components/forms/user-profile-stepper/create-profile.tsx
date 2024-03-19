@@ -140,7 +140,7 @@ export const CreateProfileOne: React.FC<ProfileFormType> = ({
     },
     {
       id: "Step 2",
-      name: "Professional Informations",
+      name: "Billing Information",
       // fields are mapping and flattening for the error to be trigger  for the dynamic fields
       fields: fields
         ?.map((_, index) => [

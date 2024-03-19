@@ -43,16 +43,16 @@ export const IMG_MAX_LIMIT = 3;
 const formSchema = z.object({
   name: z
     .string()
-    .min(3, { message: "Product Name must be at least 3 characters" }),
+    .min(3, { message: "User Name must be at least 3 characters" }),
   imgUrl: z
     .array(ImgSchema)
-    .max(IMG_MAX_LIMIT, { message: "You can only add up to 3 images" })
+    .max(IMG_MAX_LIMIT, { message: "You can only add up to 1 private key" })
     .min(1, { message: "At least one image must be added." }),
   description: z
     .string()
-    .min(3, { message: "Product description must be at least 3 characters" }),
+    .min(3, { message: "User description must be at least 3 characters" }),
   price: z.coerce.number(),
-  category: z.string().min(1, { message: "Please select a category" }),
+  category: z.string().min(1, { message: "Please select a privilege" }),
 });
 
 type ProductFormValues = z.infer<typeof formSchema>;
@@ -72,9 +72,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(false);
   const [imgLoading, setImgLoading] = useState(false);
-  const title = initialData ? "Edit product" : "Create product";
-  const description = initialData ? "Edit a product." : "Add a new product";
-  const toastMessage = initialData ? "Product updated." : "Product created.";
+  const title = initialData ? "Edit user" : "Create user";
+  const description = initialData ? "Edit a user." : "Add a new user";
+  const toastMessage = initialData ? "User updated." : "User created.";
   const action = initialData ? "Save changes" : "Create";
 
   const defaultValues = initialData
@@ -166,7 +166,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             name="imgUrl"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Images</FormLabel>
+                <FormLabel>Private Keys</FormLabel>
                 <FormControl>
                   <FileUpload
                     onChange={field.onChange}
@@ -188,7 +188,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Product name"
+                      placeholder="user name"
                       {...field}
                     />
                   </FormControl>
@@ -205,7 +205,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                   <FormControl>
                     <Input
                       disabled={loading}
-                      placeholder="Product description"
+                      placeholder="user description"
                       {...field}
                     />
                   </FormControl>
@@ -215,10 +215,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             />
             <FormField
               control={form.control}
-              name="price"
+              name="hostname"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Price</FormLabel>
+                  <FormLabel>Hostname</FormLabel>
                   <FormControl>
                     <Input type="number" disabled={loading} {...field} />
                   </FormControl>
@@ -228,10 +228,10 @@ export const ProductForm: React.FC<ProductFormProps> = ({
             />
             <FormField
               control={form.control}
-              name="category"
+              name="privilege"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Category</FormLabel>
+                  <FormLabel>Privilege</FormLabel>
                   <Select
                     disabled={loading}
                     onValueChange={field.onChange}
@@ -242,7 +242,7 @@ export const ProductForm: React.FC<ProductFormProps> = ({
                       <SelectTrigger>
                         <SelectValue
                           defaultValue={field.value}
-                          placeholder="Select a category"
+                          placeholder="Select privilege"
                         />
                       </SelectTrigger>
                     </FormControl>
